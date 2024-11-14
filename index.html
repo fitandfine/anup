@@ -11,17 +11,11 @@
             margin: 0;
             font-family: 'Arial', sans-serif;
             color: #e0e0e0;
-            background: url('IMG_3787.jpeg') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            animation: fadeBackground 15s infinite alternate ease-in-out;
-        }
-
-        @keyframes fadeBackground {
-            0% { background-size: cover; }
-            100% { background-size: 110%; }
+            overflow-x: hidden;
         }
 
         /* Header Styling */
@@ -35,7 +29,6 @@
             z-index: 1000;
             border-bottom: 2px solid #0288d1;
             font-family: 'Courier New', Courier, monospace;
-            animation: fadeInDown 1s ease-out;
         }
 
         .header .date-time {
@@ -58,7 +51,7 @@
         /* Main Container */
         .container {
             flex: 1;
-            margin-top: 150px;
+            margin-top: 180px;
             text-align: center;
             padding: 20px;
             max-width: 800px;
@@ -219,11 +212,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
