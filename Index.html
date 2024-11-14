@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anup Chapain - Contact Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            overflow-x: hidden;
+            background-color: #141414;
+            animation: backgroundPulse 10s infinite;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #0288d1;
+        }
+
+        .header h4 {
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .header h4:hover {
+            color: #e91e63;
+        }
+
+        .date-time {
+            font-size: 1.2em;
+            color: #d0faf2;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .welcome-message {
+            font-size: 1.8em;
+            margin: 10px 0;
+            animation: fadeIn 3s infinite alternate;
+        }
+
+        .container {
+            text-align: center;
+            padding: 100px 20px 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .carousel {
+            width: auto;
+            height: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            animation: slideIn 2s ease-out;
+        }
+
+        .carousel img {
+            height: 100%;
+            display: block;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        .personal-info {
+            font-size: 1.5em;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .buttons-section {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            animation: slideInFromRight 2s ease-out;
+        }
+
+        .buttons-section button {
+            padding: 15px 25px;
+            font-size: 1em;
+            color: white;
+            background-color: #008080;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            flex: 0 0 calc(50% - 20px);
+        }
+
+        .buttons-section button:hover {
+            background-color: #ff4081;
+            transform: scale(1.2);
+        }
+
+        .popup {
+            position: fixed;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 90%;
+            animation: fadeIn 0.5s ease-in-out;
+            color: #333;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #e74c3c;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: #c0392b;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes backgroundPulse {
+            0% { background-color: #141414; }
+            50% { background-color: #1c1c1c; }
+            100% { background-color: #141414; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Date and Time -->
+    <div class="header">
+        <div class="date-time" id="date-time"></div>
+        <h4><div class="welcome-message" id="welcome-message"></div></h4>
+    </div>
+
+    <div class="container">
+        <div class="carousel" id="carousel">
+            <img src="images/qr.png" alt="QR Code">
+        </div>
+
+        <!-- Personal Info -->
+        <div class="personal-info">
+            <h1>Anup Chapain</h1>
+            <h2>Contact Me</h2>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="buttons-section">
+            <button onclick="window.open('tel:+64273276110', '_self')">&#x1F4DE; Call</button>
+            <button onclick="window.open('sms:+64273276110', '_self')">&#x1F4F1; SMS</button>
+            <button onclick="sendWhatsApp()">&#x1F4AC; WhatsApp Message</button>
+            <button onclick="sendEmail()">&#x2709; Send Email</button>
+            <button onclick="window.open('https://www.instagram.com/anupcp/', '_blank')">&#x1F4F7; Instagram</button>
+            <button onclick="downloadVCard()">&#x1F4C1; Save Contact</button>
+        </div>
+    </div>
+
+    <!-- Popup Template -->
+    <div class="popup" id="generic-popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="hidePopup('generic-popup')">&times;</span>
+            <img id="popup-image" src="" alt="QR Code" style="max-width: 300px;">
+        </div>
+    </div>
+
+    <script>
+        // Display Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('date-time').textContent = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // WhatsApp Function
+        function sendWhatsApp() {
+            window.open("https://wa.me/64273276110?text=Hello%20Anup%20Chapain,%20I%20found%20your%20contact%20page", "_blank");
+        }
+
+        // Send Email Function
+        function sendEmail() {
+            window.location.href = "mailto:emailofanup@gmail.com?subject=from your contact page";
+        }
+
+        // Download vCard
+        function downloadVCard() {
+            window.location.href = 'contact.vcf';
+        }
+    </script>
+</body>
+</html>
