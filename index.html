@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anup Chapain - Contact Page</title>
     <style>
+        /* Background styling */
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
             color: #e0e0e0;
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            background: url('IMG_4769.jpeg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            animation: backgroundPulse 10s infinite;
+            min-height: 100vh;
         }
 
         .header {
@@ -25,8 +26,8 @@
             position: fixed;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid #0288d1;
             font-family: 'Courier New', Courier, monospace;
+            border-bottom: 2px solid #0288d1;
         }
 
         .header .date-time {
@@ -42,19 +43,26 @@
         }
 
         .container {
+            flex: 1;
             margin-top: 120px;
             text-align: center;
+            padding: 20px;
             max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             animation: fadeIn 2s ease-out;
         }
 
+        /* Profile Photo styling */
         .photo-container {
             width: 200px;
             height: 200px;
             overflow: hidden;
             border-radius: 50%;
-            margin: 20px auto;
             border: 3px solid #0288d1;
+            margin-top: 20px;
             animation: zoomIn 2s ease-out;
         }
 
@@ -74,7 +82,6 @@
         .info-section h2 {
             font-size: 1.5em;
             color: #e0e0e0;
-            margin: 10px 0;
             font-style: italic;
             font-family: 'Trebuchet MS', sans-serif;
         }
@@ -85,6 +92,7 @@
             margin: 10px 0;
         }
 
+        /* Buttons Section */
         .buttons-section {
             display: flex;
             flex-wrap: wrap;
@@ -95,9 +103,9 @@
         }
 
         .buttons-section button {
-            padding: 15px 25px;
+            padding: 10px 20px;
             font-size: 1em;
-            color: white;
+            color: #fff;
             background-color: #3949ab;
             border: none;
             border-radius: 10px;
@@ -107,48 +115,108 @@
 
         .buttons-section button:hover {
             background-color: #8e24aa;
+            transform: scale(1.05);
+        }
+
+        /* Footer styling */
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(15, 32, 39, 0.9);
+            border-top: 2px solid #0288d1;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .footer-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #3949ab;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .footer-btn:hover {
+            background-color: #8e24aa;
             transform: scale(1.1);
         }
 
-        /* Keyframes */
-        @keyframes backgroundPulse {
-            0%, 100% { background-color: #0f2027; }
-            50% { background-color: #203a43; }
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
         }
 
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            color: #e74c3c;
+            cursor: pointer;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: #c0392b;
+        }
+
+        /* Keyframes */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes slideInFromRight {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
         }
 
         @keyframes zoomIn {
             from { transform: scale(0.8); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
+
+        @media (max-width: 768px) {
+            .buttons-section button, .footer-btn {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Header with Date and Time -->
     <div class="header">
         <div class="date-time" id="date-time"></div>
         <div class="welcome-message" id="welcome-message">Hello! I'm Anup, from Nepal, exploring life in New Zealand!</div>
     </div>
 
+    <!-- Main Content Container -->
     <div class="container">
         <!-- Profile Photo -->
         <div class="photo-container">
             <img src="IMG_4767.jpeg" alt="Anup's Photo">
-        </div>
-
-        <!-- Personal Info Section -->
-        <div class="info-section">
-            <h1>Anup Chapain</h1>
-            <h2>Aspiring Software Engineer with a Creative Mind</h2>
-            <p>Currently completing my Master’s in Software Engineering at Yoobee College of Creative Innovations, City Road Campus, Auckland. Awaiting my final result, I'm thrilled to combine my passions for <strong>arts, literature, music, and technology</strong> in my journey!</p>
         </div>
 
         <!-- Contact Buttons Section -->
@@ -159,6 +227,27 @@
             <button onclick="sendEmail()">&#x2709; Email</button>
             <button onclick="window.open('https://www.instagram.com/anupcp/', '_blank')">&#x1F4F7; Instagram</button>
             <button onclick="downloadVCard()">&#x1F4C1; Save Contact</button>
+        </div>
+
+        <!-- Personal Info Section -->
+        <div class="info-section">
+            <h1>Anup Chapain</h1>
+            <h2>Aspiring Software Engineer with a Creative Mind</h2>
+            <p>Currently completing my Master’s in Software Engineering at Yoobee College of Creative Innovations, City Road Campus, Auckland. Awaiting my final result, I'm thrilled to combine my passions for <strong>arts, literature, music, and technology</strong> in my journey!</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <button class="footer-btn" onclick="sharePage()">Share This Page</button>
+        <button class="footer-btn" onclick="showPopup('IMG_4763.jpeg')">Share QR</button>
+    </footer>
+
+    <!-- Popup for QR Code -->
+    <div class="popup" id="qr-popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="hidePopup('qr-popup')">&times;</span>
+            <img id="qr-image" src="" alt="QR Code" style="max-width: 100%; border-radius: 10px;">
         </div>
     </div>
 
@@ -186,121 +275,35 @@
         function downloadVCard() {
             window.location.href = 'contact.vcf';
         }
-    </script>
-    <!-- Footer Section -->
-<div class="footer">
-    <button onclick="sharePage()">Share This Page</button>
-    <button onclick="showPopup('IMG_4763.jpeg')">Share QR</button>
-</div>
 
-<!-- Popup for QR Code -->
-<div class="popup" id="qr-popup">
-    <div class="popup-content">
-        <span class="close-btn" onclick="hidePopup('qr-popup')">&times;</span>
-        <img id="qr-image" src="IMG_4768.jpeg" alt="QR Code" style="max-width: 300px;">
-    </div>
-</div>
-
-<style>
-    .footer {
-        text-align: center;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.8);
-        width: 100%;
-        bottom: 0;
-        border-top: 2px solid #0288d1;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        animation: fadeIn 2s ease-out;
-    }
-
-    .footer button {
-        padding: 10px 20px;
-        font-size: 1em;
-        color: white;
-        background-color: #3949ab;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .footer button:hover {
-        background-color: #8e24aa;
-        transform: scale(1.1);
-    }
-
-    .popup {
-        position: fixed;
-        display: none;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        z-index: 1001;
-    }
-
-    .popup-content {
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        text-align: center;
-        max-width: 90%;
-        animation: fadeIn 0.5s ease-in-out;
-        color: #333;
-        font-size: 1.2em;
-        position: relative;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-        font-size: 1.5em;
-        color: #e74c3c;
-        transition: transform 0.3s, color 0.3s;
-    }
-
-    .close-btn:hover {
-        transform: rotate(90deg);
-        color: #c0392b;
-    }
-</style>
-
-<script>
-    // Native Device Sharing
-    function sharePage() {
-        if (navigator.share) {
-            navigator.share({
-                title: 'Check out Anup Chapain\'s Contact Page!',
-                text: 'Explore Anup\'s contact page and more!',
-                url: window.location.href
-            }).then(() => {
-                console.log('Thanks for sharing!');
-            }).catch((error) => {
-                console.error('Error sharing:', error);
-            });
-        } else {
-            alert('Sharing is not supported on this device. Please use the QR code instead.');
+        // Native Device Sharing
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out Anup Chapain\'s Contact Page!',
+                    text: 'Explore Anup\'s contact page and more!',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch((error) => {
+                    console.error('Error sharing:', error);
+                });
+            } else {
+                alert('Sharing is not supported on this device. Please use the QR code instead.');
+            }
         }
-    }
 
-    // QR Code Popup
-    function showPopup(imageSrc) {
-        const popup = document.getElementById('qr-popup');
-        const qrImage = document.getElementById('qr-image');
-        qrImage.src = imageSrc;
-        popup.style.display = 'flex';
-    }
+        // QR Code Popup
+        function showPopup(imageSrc) {
+            const popup = document.getElementById('qr-popup');
+            const qrImage = document.getElementById('qr-image');
+            qrImage.src = imageSrc;
+            popup.style.display = 'flex';
+        }
 
-    function hidePopup(popupId) {
-        document.getElementById(popupId).style.display = 'none';
-    }
-</script>
+        function hidePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+    </script>
 </body>
 </html>
