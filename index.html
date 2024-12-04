@@ -48,11 +48,12 @@
         /* Main Container */
         .container {
             flex: 1;
-            margin-top: 120px;
+            margin-top: 140px;
             text-align: center;
             padding: 20px;
             max-width: 800px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -141,6 +142,7 @@
         /* Footer Styling */
         .footer {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
             padding: 20px;
@@ -224,11 +226,99 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Media Queries */
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes slideInFromRight {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
-            .buttons-section button, .footer-btn {
+            .header .welcome-message {
+                font-size: 1.2em;
+            }
+
+            .header .date-time {
+                font-size: 0.9em;
+            }
+
+            .container {
+                margin-top: 120px;
+                padding: 15px;
+            }
+
+            .info-section h1 {
+                font-size: 2em;
+            }
+
+            .info-section h2 {
+                font-size: 1.5em;
+            }
+
+            .info-section p {
                 font-size: 1em;
-                padding: 12px 18px;
+            }
+
+            .buttons-section button, .footer-btn {
+                font-size: 0.9em;
+                padding: 12px 15px;
+            }
+
+            .button-icon {
+                font-size: 1.3em;
+            }
+
+            .photo-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header .welcome-message {
+                font-size: 1em;
+            }
+
+            .header .date-time {
+                font-size: 0.8em;
+            }
+
+            .info-section h1 {
+                font-size: 1.8em;
+            }
+
+            .info-section h2 {
+                font-size: 1.3em;
+            }
+
+            .info-section p {
+                font-size: 0.9em;
+            }
+
+            .buttons-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .buttons-section button, .footer-btn {
+                width: 100%;
+                max-width: 300px;
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+
+            .photo-container {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
@@ -269,7 +359,7 @@
                 <span class="button-text">WhatsApp</span>
             </button>
             <button onclick="sendEmail()">
-                <span class="button-icon">&#x2709;</span>
+                <span class="button-icon">&#x2709;&#xFE0F;</span>
                 <span class="button-text">Email</span>
             </button>
             <button onclick="window.open('https://www.instagram.com/anupcp/', '_blank')">
@@ -340,7 +430,9 @@ END:VCARD`;
             const a = document.createElement('a');
             a.href = url;
             a.download = 'AnupChapain.vcf';
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
 
             URL.revokeObjectURL(url);
         }
