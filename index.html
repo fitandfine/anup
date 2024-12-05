@@ -2,80 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anup Chapain - Contact Page</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Font: Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset CSS */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Overall Page and Background */
         body {
             font-family: 'Roboto', sans-serif;
-            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
             background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #e0e0e0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* Header Styling */
-        .header {
-            background-color: rgba(15, 32, 39, 0.9);
-            padding: 10px 20px;
-            width: 100%;
+        header {
             text-align: center;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #0288d1;
+            background: rgba(15, 32, 39, 0.9);
+            padding: 20px;
+            border-bottom: 2px solid #0288d1;
         }
 
-        .header .welcome-message {
-            font-size: 1.5em;
+        header h1 {
             color: #ffcc00;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
 
-        .header .date-time {
-            font-size: 1em;
-            color: #d0faf2;
+        header h2 {
+            color: #d0d0d0;
+            font-size: 1.2em;
         }
 
-        /* Main Container */
         .container {
             flex: 1;
-            margin-top: 130px;
             text-align: center;
             padding: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: fadeIn 1s ease-out;
         }
 
-        /* Profile Photo Styling */
         .photo-container {
-            width: 200px;
-            height: 200px;
-            overflow: hidden;
+            margin: 20px auto;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 4px solid #0288d1;
-            margin-top: 20px;
-            animation: zoomIn 1s ease-out;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            border: 3px solid #0288d1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
         .photo-container img {
@@ -84,104 +58,54 @@
             object-fit: cover;
         }
 
-        /* Info Section */
-        .info-section h1 {
-            font-size: 2.5em;
+        .info-section h3 {
             color: #ffcc00;
-            margin: 20px 0 10px 0;
-            font-weight: bold;
-        }
-
-        .info-section h2 {
-            font-size: 1.7em;
-            color: #d0d0d0;
-            font-style: italic;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin: 10px 0;
         }
 
         .info-section p {
-            font-size: 1.2em;
-            color: #b0bec5;
-            margin: 20px 0;
-            line-height: 1.6;
             max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* Buttons Section */
         .buttons-section {
+            margin: 20px auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
-            animation: slideInFromRight 1s ease-out;
         }
 
         .buttons-section button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            font-size: 1em;
+            padding: 10px 20px;
+            font-size: 1rem;
             color: #fff;
-            background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+            background: #0288d1;
             border: none;
-            border-radius: 50px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+            transition: background 0.3s, transform 0.3s;
         }
 
         .buttons-section button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            background: #8e24aa;
+            transform: scale(1.05);
         }
 
-        .button-icon {
-            font-size: 1.2em;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(15, 32, 39, 0.9);
+            border-top: 2px solid #0288d1;
         }
 
-        .button-text {
-            font-size: 1em;
+        footer p {
+            margin: 0;
+            color: #d0d0d0;
         }
 
-        /* Footer Styling */
-        .footer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(15, 32, 39, 0.95);
-            border-top: 1px solid #0288d1;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
-            z-index: 1000;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .footer-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            font-size: 1em;
-            color: #ffffff;
-            background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .footer-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Popup Styling */
         .popup {
             display: none;
             position: fixed;
@@ -192,134 +116,40 @@
             background: rgba(0, 0, 0, 0.85);
             justify-content: center;
             align-items: center;
-            z-index: 1001;
+            z-index: 1000;
         }
 
         .popup-content {
             background: #fff;
             padding: 20px;
             border-radius: 15px;
-            max-width: 90%;
             text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6);
             position: relative;
         }
 
-        .close-btn {
+        .popup-content img {
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+        }
+
+        .popup-content .close-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             font-size: 1.5em;
-            color: #e74c3c;
             cursor: pointer;
-            transition: transform 0.3s, color 0.3s;
+            color: #e74c3c;
         }
 
-        .close-btn:hover {
-            transform: rotate(90deg);
-            color: #c0392b;
-        }
-
-        /* Keyframes */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes slideInFromRight {
-            from { opacity: 0; transform: translateX(50%); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
-            .header .welcome-message {
-                font-size: 1.3em;
-            }
-
-            .header .date-time {
-                font-size: 0.9em;
-            }
-
-            .container {
-                margin-top: 120px;
-                padding: 15px;
-            }
-
-            .info-section h1 {
+            header h1 {
                 font-size: 2em;
             }
 
-            .info-section h2 {
-                font-size: 1.4em;
-            }
-
-            .info-section p {
-                font-size: 1em;
-            }
-
-            .buttons-section button, .footer-btn {
-                font-size: 0.9em;
-                padding: 10px 15px;
-            }
-
-            .button-icon {
-                font-size: 1.1em;
-            }
-
-            .photo-container {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header .welcome-message {
-                font-size: 1.1em;
-            }
-
-            .header .date-time {
-                font-size: 0.8em;
-            }
-
-            .info-section h1 {
-                font-size: 1.8em;
-            }
-
-            .info-section h2 {
-                font-size: 1.2em;
-            }
-
-            .info-section p {
-                font-size: 0.9em;
-            }
-
-            .buttons-section {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .footer {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .buttons-section button, .footer-btn {
-                width: 100%;
-                max-width: 280px;
-                font-size: 0.9em;
-                padding: 10px 15px;
+            .buttons-section button {
+                font-size: 0.9rem;
+                padding: 8px 15px;
             }
 
             .photo-container {
@@ -327,152 +157,75 @@
                 height: 120px;
             }
         }
+
+        @media (max-width: 480px) {
+            .buttons-section {
+                flex-direction: column;
+            }
+
+            .photo-container {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header with Welcome Message and Date Time -->
-    <div class="header">
-        <div class="welcome-message">Welcome to my contact page!</div>
-        <div class="date-time" id="date-time"></div>
-    </div>
+    <header>
+        <h1>Anup Chapain</h1>
+        <h2>Passionate Software Engineer | AI Enthusiast</h2>
+    </header>
 
-    <!-- Main Content Container -->
-    <div class="container">
-        <!-- Profile Photo -->
+    <main class="container">
         <div class="photo-container">
-            <img src="IMG_4767.jpeg" alt="Anup's Photo">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAAAAAAD/2wCEAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAABAAEDAREAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEB/8QAHxABAQEAAgMBAAAAAAAAAAAAAAECAwQhERJB/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAIBAAH/xAAZEQACAwEAAAAAAAAAAAAAAAAAEQECAzL/2gAMAwEAAhEDEQA/AOfIqcPYYKVEzxs5cxT50NShY7VhGn95gc8uRpXQFJJWZLP8AVz//2Q==" alt="Anup Chapain">
         </div>
-
-        <!-- Personal Info Section -->
         <div class="info-section">
-            <h1>Anup Chapain</h1>
-            <h2>Aspiring Software Engineer with a Creative Mind</h2>
-            <p>Graduated with a Master's in Software Engineering from Yoobee College of Creative Innovations, City Road Campus, Auckland, in November 2024. I'm thrilled to combine my passions for <strong>arts, literature, music, and technology</strong> in my journey!</p>
+            <h3>About Me</h3>
+            <p>Passionate software engineer with a Master's in Software Engineering, specializing in AI and hardware-software integrated solutions. Open to solving real-world challenges with innovative thinking.</p>
         </div>
-
-        <!-- Contact Buttons Section -->
         <div class="buttons-section">
-            <button onclick="window.open('tel:+64273276110', '_self')">
-                <span class="button-icon">&#x1F4DE;</span>
-                <span class="button-text">Call</span>
-            </button>
-            <button onclick="window.open('sms:+64273276110', '_self')">
-                <span class="button-icon">&#x1F4F1;</span>
-                <span class="button-text">SMS</span>
-            </button>
-            <button onclick="sendWhatsApp()">
-                <span class="button-icon">&#x1F4AC;</span>
-                <span class="button-text">WhatsApp</span>
-            </button>
-            <button onclick="sendEmail()">
-                <span class="button-icon">&#x2709;&#xFE0F;</span>
-                <span class="button-text">Email</span>
-            </button>
-            <button onclick="window.open('https://www.instagram.com/anupcp/', '_blank')">
-                <span class="button-icon">&#x1F4F7;</span>
-                <span class="button-text">Instagram</span>
-            </button>
-            <button onclick="downloadVCard()">
-                <span class="button-icon">&#x1F4C1;</span>
-                <span class="button-text">Save Contact</span>
-            </button>
+            <button onclick="window.location.href='mailto:anupchapain@gmail.com'">📧 Email</button>
+            <button onclick="window.location.href='tel:+64273276110'">📞 Call</button>
+            <button onclick="window.open('https://wa.me/64273276110')">💬 WhatsApp</button>
+            <button onclick="window.open('https://www.instagram.com/anupcp/')">📸 Instagram</button>
+            <button onclick="showPopup()">📷 QR Code</button>
+            <button onclick="downloadVCard()">📂 Save Contact</button>
         </div>
-    </div>
+    </main>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <button class="footer-btn" onclick="sharePage()">
-            <span class="button-icon">&#x1F517;</span>
-            <span class="button-text">Share This Page</span>
-        </button>
-        <button class="footer-btn" onclick="showPopup('IMG_4763.jpeg')">
-            <span class="button-icon">&#x1F4F7;</span>
-            <span class="button-text">Share QR</span>
-        </button>
+    <footer>
+        <p>&copy; 2024 Anup Chapain | All Rights Reserved</p>
     </footer>
 
-    <!-- Popup for QR Code -->
     <div class="popup" id="qr-popup">
         <div class="popup-content">
-            <span class="close-btn" onclick="hidePopup('qr-popup')">&times;</span>
-            <img id="qr-image" src="" alt="QR Code" style="max-width: 100%; border-radius: 10px;">
+            <span class="close-btn" onclick="hidePopup()">&times;</span>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..." alt="QR Code">
         </div>
     </div>
 
     <script>
-        // Display Date and Time
-        function updateDateTime() {
-            const now = new Date();
-            const options = { 
-                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 
-                hour: '2-digit', minute: '2-digit', second: '2-digit',
-                hour12: true 
-            };
-            document.getElementById('date-time').textContent = now.toLocaleDateString('en-US', options);
-        }
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
-
-        // WhatsApp Function
-        function sendWhatsApp() {
-            window.open("https://wa.me/64273276110?text=Hello%20Anup,%20I%20found%20your%20contact%20page", "_blank");
+        function showPopup() {
+            document.getElementById('qr-popup').style.display = 'flex';
         }
 
-        // Send Email Function
-        function sendEmail() {
-            window.location.href = "mailto:emailofanup@gmail.com?subject=Contact From Your Page";
+        function hidePopup() {
+            document.getElementById('qr-popup').style.display = 'none';
         }
 
-        // Download vCard
         function downloadVCard() {
             const vCardData = `BEGIN:VCARD
 VERSION:3.0
 FN:Anup Chapain
-TEL;TYPE=VOICE,SMS:+64273276110
-EMAIL:emailofanup@gmail.com
-URL:https://www.instagram.com/anupcp
+TEL:+64273276110
+EMAIL:anupchapain@gmail.com
 END:VCARD`;
-
             const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'AnupChapain.vcf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-
-            URL.revokeObjectURL(url);
-        }
-
-        // Native Device Sharing
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: "Check out Anup Chapain's Contact Page!",
-                    text: "Explore Anup's contact page and more!",
-                    url: window.location.href
-                }).then(() => {
-                    console.log('Thanks for sharing!');
-                }).catch((error) => {
-                    console.error('Error sharing:', error);
-                });
-            } else {
-                alert('Sharing is not supported on this device. Please use the QR code instead.');
-            }
-        }
-
-        // QR Code Popup
-        function showPopup(imageSrc) {
-            const popup = document.getElementById('qr-popup');
-            const qrImage = document.getElementById('qr-image');
-            qrImage.src = imageSrc;
-            popup.style.display = 'flex';
-        }
-
-        function hidePopup(popupId) {
-            document.getElementById(popupId).style.display = 'none';
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Anup_Contact.vcf';
+            link.click();
         }
     </script>
 </body>
