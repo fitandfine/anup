@@ -141,7 +141,58 @@
             cursor: pointer;
             color: #e74c3c;
         }
+.popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            max-width: 500px;
+        }
+
+        .popup-content .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #e74c3c;
+        }
+
+        .popup-content h3 {
+            color: #0288d1;
+            margin-bottom: 15px;
+        }
+
+        .popup-content p {
+            text-align: justify;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .speaker-icon {
+            font-size: 2em;
+            color: #0288d1;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .speaker-icon:hover {
+            color: #8e24aa;
+        }
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
@@ -182,9 +233,21 @@
             <img src="photo.jpeg" alt="Anup Chapain">
         </div>
         <div class="info-section">
-            <h3>About Me</h3>
-            <p>Passionate software engineer with a Master's in Software Engineering, experimenting in AI and hardware-software integrated solutions. Open to solving real-world challenges with innovative thinking in any realm, healthcare, traffic management, farming, security, or anything that is important in life, I'm interested. I'm a proud generalist who uses chatGPT more than Google and I shamelessly ask it to write most of the codes. If you are hiring me, you also agree to pay for my chatGPT subscription for the duration of my job. Trust me, there is no area I cannot use chatGPT and cannot make it better. I am looking for worthy problems to solve that have good rewards for me, my team, and humanity. If you hate AI and AI in your work space, please register my number in your block-list in work phone book yet keep me in your personal phone book coz I might play your favorite song to you someday on guitar or piano or even ukulele, because why not? I love to read and listen to people who have read: literature, life, place, art, philosophy, emotions, experience, awareness, cosmos, curiosity, and human stupidity in general called "purpose of life".   </p>
-<p>P.s: I was to make about_me.pdf to save my time on answering the obvious question, but ended up doing this. :) </p>
+              <main class="container">
+        <div class="buttons-section">
+            <button onclick="toggleAboutMe()">About Me</button>
+        </div>
+        <div class="popup" id="aboutMePopup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="toggleAboutMe()">&times;</span>
+                <h3>About Me</h3>
+                <p id="aboutMeText">
+                    Passionate software engineer with a Master's in Software Engineering, experimenting in AI and hardware-software integrated solutions. Open to solving real-world challenges with innovative thinking in any realm, healthcare, traffic management, farming, security, or anything that is important in life, I'm interested. I'm a proud generalist who uses chatGPT more than Google and I shamelessly ask it to write most of the codes. If you are hiring me, you also agree to pay for my chatGPT subscription for the duration of my job. Trust me, there is no area I cannot use chatGPT and cannot make it better. I am looking for worthy problems to solve that have good rewards for me, my team, and humanity. If you hate AI and AI in your work space, please register my number in your block-list in work phone book yet keep me in your personal phone book coz I might play your favorite song to you someday on guitar or piano or even ukulele, because why not? I love to read and listen to people who have read: literature, life, place, art, philosophy, emotions, experience, awareness, cosmos, curiosity, and human stupidity in general called "purpose of life".
+                </p>
+                <span class="speaker-icon" onclick="speakAboutMe()">🔊</span>
+            </div>
+        </div>
+    </main>
         </div>
         <div class="buttons-section">
             <button onclick="window.location.href='mailto:pleasedontgetconfused@gmail.com'">📧 Email</button>
@@ -200,9 +263,29 @@
         </div>
     </main>
 
+     
+
     <footer>
-        <p> Developed completely by: chatGPT, under my Prompt! <br>still, &copy; Anup Chapain </p>
+        <p>&copy; Anup Chapain</p>
     </footer>
+
+    <script>
+        const popup = document.getElementById('aboutMePopup');
+
+        function toggleAboutMe() {
+            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function speakAboutMe() {
+            const text = document.getElementById('aboutMeText').innerText;
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.lang = 'en-US';
+            speech.volume = 1;
+            speech.rate = 1;
+            speech.pitch = 1;
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
 
     <div class="popup" id="qr-popup">
         <div class="popup-content">
