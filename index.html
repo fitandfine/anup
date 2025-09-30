@@ -1,327 +1,297 @@
-
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anup Chapain - Contact Page</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-      <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-            color: #e0e0e0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anup Chapain — Interactive Portfolio & Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#071019; --bg2:#0e2940; --accent:#00e5ff; --accent2:#ffcc00; --glass: rgba(255,255,255,0.06);
+      --glass-strong: rgba(255,255,255,0.10);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.04), transparent),
+                  linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#e6eef3;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
 
-        header {
-            text-align: center;
-            background: rgba(15, 32, 39, 0.9);
-            padding: 20px;
-            border-bottom: 2px solid #0288d1;
-        }
+    /* --- Hero / orbital layout --- */
+    header.hero{
+      display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;padding:56px 6vw 40px;
+    }
+    .intro{
+      max-width:860px;
+      padding-right:20px;
+    }
+    h1{
+      font-size:clamp(28px,4.8vw,48px);line-height:1.02;margin-bottom:8px;color:var(--accent2);
+      text-shadow:0 6px 30px rgba(255,204,0,0.06);
+      letter-spacing:-0.02em;
+    }
+    p.lead{color:#cfeaf6;font-size:1.05rem;margin-bottom:18px}
+    .tagline{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .pill{background:linear-gradient(90deg,rgba(255,204,0,0.12),rgba(0,229,255,0.06));padding:8px 12px;border-radius:999px;font-weight:600;color:#fff}
 
-        header h1 {
-            color: #ffcc00;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+   /* orbital portrait */
+.orbital {
+  width: 420px;
+  height: 420px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin: auto;
+  background: conic-gradient(from 120deg at 50% 50%, rgba(0,229,255,0.04), transparent 30%);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(2,136,209,0.06), inset 0 1px 0 rgba(255,255,255,0.02);
+  overflow: hidden;
+}
 
-        header h2 {
-            color: #d0d0d0;
-            font-size: 1.2em;
-        }
+.orbital .portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 40px rgba(2,136,209,0.06);
+  transform: translateZ(0);
+  position: relative;
+  z-index: 1;
+}
 
-        .container {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-        }
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-        .photo-container {
-            margin: 20px auto;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid #0288d1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
+/* animated orbit elements */
+.satellite {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  z-index: 2;
+}
 
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+/* pushed satellites farther out */
+.s1 { top: -10px; left: -10px; animation: float1 6s ease-in-out infinite; }
+.s2 { right: -10px; top: 20px; animation: float2 8s ease-in-out infinite; }
+.s3 { bottom: -10px; left: 20px; animation: float3 7s ease-in-out infinite; }
+.s4 { bottom: -10px; right: -10px; animation: float4 5.5s ease-in-out infinite; }
 
-        .info-section h3 {
-            color: #ffcc00;
-            font-size: 1.8em;
-            margin: 10px 0;
-        }
+@keyframes float1 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+  100% { transform: translateY(0); }
+}
+@keyframes float2 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes float3 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+@keyframes float4 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
 
-        .info-section p {
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
 
-        .buttons-section {
-            margin: 20px auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
+    /* resume strip */
+    .resume-strip{
+      margin:28px 6vw;padding:22px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      display:flex;gap:28px;align-items:center;justify-content:space-between;box-shadow:0 12px 40px rgba(2,136,209,0.03);
+    }
+    .summary{max-width:75%}
+    .summary h3{color:var(--accent2);margin-bottom:8px}
+    .summary p{color:#d6e9f2}
+    .meta{display:flex;gap:10px;align-items:center}
+    .meta .btn{padding:10px 16px;border-radius:10px;background:var(--accent);color:#042033;text-decoration:none;font-weight:700}
 
-        .buttons-section button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            color: #fff;
-            background: #0288d1;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
+    /* two-column details */
+    .grid{display:grid;grid-template-columns:1fr 420px;gap:36px;padding:48px 6vw}
+    .left-col{display:flex;flex-direction:column;gap:28px}
+    .card{background:var(--glass);padding:20px;border-radius:14px;backdrop-filter:blur(6px)}
+    .card h4{color:var(--accent2);margin-bottom:10px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.03);font-weight:600}
 
-        .buttons-section button:hover {
-            background: #8e24aa;
-            transform: scale(1.05);
-        }
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .titem{padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-left:4px solid rgba(0,229,255,0.06)}
+    .titem strong{display:block;color:#dff8ff}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(15, 32, 39, 0.9);
-            border-top: 2px solid #0288d1;
-        }
+    /* projects / links creative */
+    .links{display:flex;flex-direction:column;gap:14px}
+    .link-card{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 6px 22px rgba(0,0,0,0.45)}
+    .link-left{display:flex;gap:12px;align-items:center}
+    .favicon{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:900;color:#021328}
+    .link-title{font-weight:700}
+    .cta{color:var(--accent);text-decoration:none;font-weight:700}
 
-        footer p {
-            margin: 0;
-            color: #d0d0d0;
-        }
+    footer{padding:28px;text-align:center;color:#9fbfce}
 
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+    @media (max-width:1024px){header.hero{grid-template-columns:1fr 320px}.orbital{width:320px;height:320px}}
+    @media (max-width:780px){header.hero{grid-template-columns:1fr;padding:36px 5vw;gap:24px}.grid{grid-template-columns:1fr;gap:20px}.orbital{width:260px;height:260px}.resume-strip{flex-direction:column;align-items:flex-start}}
 
-        .popup-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            position: relative;
-        }
-
-        .popup-content img {
-            width: 100%;
-            max-width: 200px;
-            margin: 20px auto;
-        }
-
-        .popup-content .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #e74c3c;
-        }
-.popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .popup-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            position: relative;
-            max-width: 500px;
-        }
-
-        .popup-content .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #e74c3c;
-        }
-
-        .popup-content h3 {
-            color: #0288d1;
-            margin-bottom: 15px;
-        }
-
-        .popup-content p {
-            text-align: justify;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .speaker-icon {
-            font-size: 2em;
-            color: #0288d1;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .speaker-icon:hover {
-            color: #8e24aa;
-        }
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .buttons-section button {
-                font-size: 0.9rem;
-                padding: 8px 15px;
-            }
-
-            .photo-container {
-                width: 120px;
-                height: 120px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .buttons-section {
-                flex-direction: column;
-            }
-
-            .photo-container {
-                width: 100px;
-                height: 100px;
-            }
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Anup Chapain</h1>
-        <h2>a Passionate Software Engineer</h2>
-        <h2>currently, a Python Enthusiast</h2>
-    </header>
+  <header class="hero">
+    <div class="intro">
+      <h1>Anup Chapain</h1>
+      <div class="tagline">
+        <div class="pill">Service Desk Specialist</div>
+        <div class="pill">Master in Software Engineering</div>
+        <div class="pill">Auckland • Open Work Visa</div>
+      </div>
 
-    <main class="container">
-        <div class="photo-container">
-            <img src="photo.jpeg" alt="Anup Chapain">
-        </div>
-        <div class="buttons-section">
-            <button onclick="toggleAboutMe()">About Me</button>
-        </div>
-        <div class="popup" id="aboutMePopup">
-            <div class="popup-content">
-                <span class="close-btn" onclick="toggleAboutMe()">&times;</span>
-                <h3>About Me <span class="speaker-icon" onclick="speakAboutMe()">🔊</span></h3>
-                <p id="aboutMeText">
-                    Passionate software engineer with a Master's in Software Engineering, experimenting in AI and hardware-software integrated solutions. Open to solving real-world challenges with innovative thinking in any realm, healthcare, traffic management, farming, security, or anything that is important in life, I'm interested.
-                </p>
-                <button onclick="stopSpeech()">Stop Speech</button>
-            </div>
-        </div>
-        <div class="buttons-section">
-            <button onclick="window.location.href='mailto:emailofanup@gmail.com'">📧 Email</button>
-           <!-- <button onclick="window.open('https://wa.me/64273276110')">💬 WhatsApp</button>
-            <button onclick="window.location.href='sms:+64273276110'">📱 SMS</button>
-            <button onclick="window.location.href='tel:+64273276110'">📞 Ring me</button> -->
-               <button onclick="window.open('https://www.instagram.com/anupcp/')">📸 Instagram</button>
-            <button onclick="showPopup()">📷 QR Code</button>
-        </div>
-    </main>
-
-    <footer>
-        <p>
-         &copy; Anup Chapain</p>
-    </footer>
-
-    <div class="popup" id="qr-popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="hidePopup()">&times;</span>
-            <img src="qr.jpeg" alt="QR Code">
-        </div>
+      <p class="lead">High-performing, coachable Service Desk professional with a technical foundation in Linux, networking, scripting and ITIL-aligned incident management. Rapid at learning, calm under pressure, and building strong user rapport — aiming to translate frontline support experience into a long-term career in DevOps & Cloud Operations.</p>
+      <p><strong><strong>Languages:</strong> English (PTE 90/90 - May 2023) • Nepali (native) • Hindi (conversational)</p>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="pill" href="mailto:emailofanup@gmail.com">Contact</a>
+        <a class="pill" href="https://github.com/fitandfine" target="_blank">GitHub</a>
+        
+      </div>
     </div>
 
-    <script>
-        let speechSynthesisInstance = null;
+    <div class="orbital" aria-hidden>
+      <div class="satellite s1">Linux</div>
+      <div class="satellite s2">Python</div>
+      <div class="satellite s3">ITIL</div>
+      <div class="satellite s4">AWS</div>
+      
 
-        const popup = document.getElementById('aboutMePopup');
+      <div class="portrait"><img src="photo.jpg" alt="Anup Chapain"></div>
+    </div>
+  </header>
+ <main class="grid">
+    <section class="left-col">
+      <div class="card">
+        <h4>Professional Summary</h4>
+        <p>Highly efficient Service Desk professional skilled at managing high-volume requests and providing rapid issue resolution with a focus on outstanding customer experience. Enthusiastic about learning automation and cloud technologies to move towards DevOps.</p>
+      </div>
+  <div class="resume-strip">
+    <div class="summary">
+      <h3>Quick Snapshot</h3>
+      
+      <p style="margin-top:8px">Completed Datacom Service Desk simulation (Forage, Sep 2025) — practised incident prioritisation, ITIL logging and escalations. Currently preparing for AWS certification (planned 20 Oct 2025). </p>
+    </div>
+    <div class="meta">
+      <a class="btn" href="https://github.com/fitandfine" target="_blank">View GitHub</a>
+    </div>
+  </div>
 
-        function toggleAboutMe() {
-            if (popup.style.display === 'flex') {
-                stopSpeech();
-                popup.style.display = 'none';
-            } else {
-                popup.style.display = 'flex';
-            }
-        }
+ 
 
-        function speakAboutMe() {
-            const text = document.getElementById('aboutMeText').innerText;
-            stopSpeech(); // Stop any ongoing speech
-            speechSynthesisInstance = new SpeechSynthesisUtterance(text);
-            speechSynthesisInstance.lang = 'en-US';
-            speechSynthesisInstance.volume = 1;
-            speechSynthesisInstance.rate = 1;
-            speechSynthesisInstance.pitch = 1;
-            window.speechSynthesis.speak(speechSynthesisInstance);
-        }
+      <div class="card">
+        <h4>Core Skills</h4>
+        <div class="skill-list" style="margin-top:8px">
+         
+          <div class="skill">Windows & Linux</div>
+          <div class="skill">Bash & Python Scripting</div>
+          <div class="skill">Django / Flask</div>
+          <div class="skill">Networking (DNS, TCP/IP, VPN)</div>
+          <div class="skill">C</div>
+          <div class="skill">C++</div>
+          <div class="skill">sql</div>
+          <div class="skill">php</div>
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+           <div class="skill">Incident Management (ITIL)</div>
+          <div class="skill">Hardware & Software Troubleshooting</div>
+          <div class="skill">POS & Retail Systems</div>
+          <div class="skill">End-user Training & Documentation</div>
+          <div class="skill">Customer Experience & Communication</div>
+        </div>
+      </div>
 
-        function stopSpeech() {
-            if (speechSynthesisInstance) {
-                window.speechSynthesis.cancel();
-                speechSynthesisInstance = null;
-            }
-        }
+      <div class="card">
+        <h4>Experience & Highlights</h4>
+        <div class="timeline">
+          <div class="titem"><strong>Customer Service Representative — BP2Go, Eltham (Apr 2025 - Jul 2025)</strong><span style="display:block;color:#bfefff">Frontline support, POS operations, team training and operational reliability during peak times.</span></div>
+          <div class="titem"><strong>IT Support Technician / Manager — Nepal (2011 - 2023)</strong><span style="display:block;color:#bfefff">Desktop & network support, documentation, staff training and system maintenance.</span></div>
+          <div class="titem"><strong>IELTS/PTE Instructor — Various (2016 - 2023)</strong><span style="display:block;color:#bfefff">Communication coaching and public speaking — enhanced stakeholder communication skills.</span></div>
+        </div>
+      </div>
 
-        function showPopup() {
-            document.getElementById('qr-popup').style.display = 'flex';
-        }
+      <div class="card">
+        <h4>Education & Certifications</h4>
+        <p><strong>Master in Software Engineering</strong> — Yoobee College of Creative Innovation, Auckland (2024)</p>
+        <p style="margin-top:6px"><strong>Diploma in Computer Engineering</strong> — Thapathali Campus, Tribhuvan University, Nepal (2010)</p>
+        <p style="margin-top:10px"><strong>Extra Curricular:</strong> Datacom Service Desk (Forage, Sep 2025); Fundamentals of Digital Marketing (Google); Inbound Marketing (HubSpot); Teaching Excellence (British Council); PTE Academic 90/90 (May 2023); AWS Exam (planned 20 Oct 2025).</p>
+      </div>
 
-        function hidePopup() {
-            document.getElementById('qr-popup').style.display = 'none';
-        }
+    </section>
 
-        function downloadVCard() {
-            const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Anup Chapain
-TEL:+64273276110
-EMAIL:pleasedontgetconfused@gmail.com
-END:VCARD`;
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Anup_Contact.vcf';
-            link.click();
-        }
-    </script>
+    <aside class="card" style="height:fit-content">
+      <h4>You might want to click</h4>
+      <div class="links" style="margin-top:12px">
+        <div class="link-card">
+          <div class="link-left"><div class="favicon">D</div><div>
+            <div class="link-title">Dictionary App</div>
+            <div style="font-size:0.9rem;color:#bfefff">Interactive dictionary UI & API integration</div>
+          </div></div>
+          <div><a class="cta" href="https://fitandfine.github.io/dictionary/" target="_blank">You might want to click →</a></div>
+        </div>
+
+        <div class="link-card">
+          <div class="link-left"><div class="favicon">E</div><div>
+            <div class="link-title">Earthquake Visualizer</div>
+            <div style="font-size:0.9rem;color:#bfefff">Real-time data visualisation of seismic activity</div>
+          </div></div>
+          <div><a class="cta" href="https://fitandfine.github.io/Earthquake-Visualizer/" target="_blank">You might want to click →</a></div>
+        </div>
+
+        <div class="link-card">
+          <div class="link-left"><div class="favicon">M</div><div>
+            <div class="link-title">MyBook</div>
+            <div style="font-size:0.9rem;color:#bfefff">Book project for kids</div>
+          </div></div>
+          <div><a class="cta" href="https://fitandfine.github.io/mybook/" target="_blank">You might want to click →</a></div>
+        </div>
+
+        <div class="link-card">
+          <div class="link-left"><div class="favicon">G</div><div>
+            <div class="link-title">GitHub Profile</div>
+            <div style="font-size:0.9rem;color:#bfefff">Explore code, scripts and projects</div>
+          </div></div>
+          <div><a class="cta" href="https://github.com/fitandfine" target="_blank">You might want to click →</a></div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+        <a class="cta" href="mailto:emailofanup@gmail.com">Email</a>
+      </div>
+
+    </aside>
+  </main>
+
+  <footer>
+    <div style="max-width:980px;margin:0 auto;padding:8px 18px;color:#9fbfce;">© 2025 Anup Chapain — Service Desk • DevOps aspirant • Master in Software Engineering</div>
+  </footer>
+
+ 
 </body>
 </html>
