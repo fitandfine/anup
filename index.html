@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Anup Chapain — Software Engineer</title>
+  <title>Anup Chapain — Service Desk & Cloud Enthusiast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -17,221 +17,211 @@
       background: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.04), transparent),
                   linear-gradient(135deg,var(--bg1),var(--bg2));
       color:#e6eef3;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
       overflow-x:hidden;
     }
 
-    /* --- Hero / orbital layout --- */
     header.hero{
       display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;padding:56px 6vw 40px;
     }
-    .intro{
-      max-width:860px;
-      padding-right:20px;
-    }
+    .intro{max-width:860px;padding-right:20px;}
     h1{
-      font-size:clamp(28px,4.8vw,48px);line-height:1.02;margin-bottom:8px;color:var(--accent2);
-      text-shadow:0 6px 30px rgba(255,204,0,0.06);
+      font-size:clamp(28px,4.8vw,48px);line-height:1.02;margin-bottom:8px;
+      color:var(--accent2);text-shadow:0 6px 30px rgba(255,204,0,0.06);
       letter-spacing:-0.02em;
     }
     p.lead{color:#cfeaf6;font-size:1.05rem;margin-bottom:18px}
     .tagline{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
     .pill{background:linear-gradient(90deg,rgba(255,204,0,0.12),rgba(0,229,255,0.06));padding:8px 12px;border-radius:999px;font-weight:600;color:#fff}
 
-   /* orbital portrait */
-.orbital {
-  width: 420px;
-  height: 420px;
-  display: grid;
-  place-items: center;
-  position: relative;
-  margin: auto;
-  background: conic-gradient(from 120deg at 50% 50%, rgba(0,229,255,0.04), transparent 30%);
-  border-radius: 28px;
-  padding: 28px;
-  box-shadow: 0 20px 60px rgba(2,136,209,0.06), inset 0 1px 0 rgba(255,255,255,0.02);
-  overflow: hidden;
-}
-
-.orbital .portrait {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid rgba(255,255,255,0.06);
-  box-shadow: 0 10px 40px rgba(2,136,209,0.06);
-  transform: translateZ(0);
-  position: relative;
-  z-index: 1;
-}
-
-.portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* animated orbit elements */
-.satellite {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
-  background: var(--glass);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: var(--accent);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
-  z-index: 2;
-}
-
-/* pushed satellites farther out */
-.s1 { top: -10px; left: -10px; animation: float1 6s ease-in-out infinite; }
-.s2 { right: -10px; top: 20px; animation: float2 8s ease-in-out infinite; }
-.s3 { bottom: -10px; left: 20px; animation: float3 7s ease-in-out infinite; }
-.s4 { bottom: -10px; right: -10px; animation: float4 5.5s ease-in-out infinite; }
-
-@keyframes float1 {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-  100% { transform: translateY(0); }
-}
-@keyframes float2 {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-@keyframes float3 {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-  100% { transform: translateY(0); }
-}
-@keyframes float4 {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
-
-
-    /* resume strip */
-    .resume-strip{
-      margin:28px 6vw;padding:22px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      display:flex;gap:28px;align-items:center;justify-content:space-between;box-shadow:0 12px 40px rgba(2,136,209,0.03);
+    /* orbital portrait */
+    .orbital {
+      width: 420px;
+      height: 420px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      margin: auto;
+      background: conic-gradient(from 120deg at 50% 50%, rgba(0,229,255,0.04), transparent 30%);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(2,136,209,0.06), inset 0 1px 0 rgba(255,255,255,0.02);
+      overflow: hidden;
     }
+
+    .orbital .portrait {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 40px rgba(2,136,209,0.06);
+      position: relative;
+      z-index: 1;
+    }
+
+    .portrait img {width:100%;height:100%;object-fit:cover;display:block;}
+
+    .satellite {
+      position: absolute;
+      width: 80px;height: 80px;
+      border-radius: 12px;background: var(--glass);
+      backdrop-filter: blur(6px);
+      display: flex;align-items: center;justify-content: center;
+      font-weight: 700;color: var(--accent);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6);z-index: 2;
+    }
+
+    .s1 { top: -10px; left: -10px; animation: float1 6s ease-in-out infinite; }
+    .s2 { right: -10px; top: 20px; animation: float2 8s ease-in-out infinite; }
+    .s3 { bottom: -10px; left: 20px; animation: float3 7s ease-in-out infinite; }
+    .s4 { bottom: -10px; right: -10px; animation: float4 5.5s ease-in-out infinite; }
+
+    @keyframes float1 {0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+    @keyframes float2 {0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes float3 {0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+    @keyframes float4 {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    .resume-strip{
+      margin:28px 6vw;padding:22px;border-radius:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      display:flex;gap:28px;align-items:center;justify-content:space-between;
+      box-shadow:0 12px 40px rgba(2,136,209,0.03);
+    }
+
     .summary{max-width:75%}
     .summary h3{color:var(--accent2);margin-bottom:8px}
     .summary p{color:#d6e9f2}
-    .meta{display:flex;gap:10px;align-items:center}
-    .meta .btn{padding:10px 16px;border-radius:10px;background:var(--accent);color:#042033;text-decoration:none;font-weight:700}
+    .meta .btn{padding:10px 16px;border-radius:10px;background:var(--accent);
+      color:#042033;text-decoration:none;font-weight:700}
 
-    /* two-column details */
     .grid{display:grid;grid-template-columns:1fr 420px;gap:36px;padding:48px 6vw}
-    .left-col{display:flex;flex-direction:column;gap:28px}
     .card{background:var(--glass);padding:20px;border-radius:14px;backdrop-filter:blur(6px)}
     .card h4{color:var(--accent2);margin-bottom:10px}
     .skill-list{display:flex;flex-wrap:wrap;gap:10px}
     .skill{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.03);font-weight:600}
 
     .timeline{display:flex;flex-direction:column;gap:12px}
-    .titem{padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-left:4px solid rgba(0,229,255,0.06)}
+    .titem{padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-left:4px solid rgba(0,229,255,0.06)}
     .titem strong{display:block;color:#dff8ff}
 
-    /* projects / links creative */
     .links{display:flex;flex-direction:column;gap:14px}
-    .link-card{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 6px 22px rgba(0,0,0,0.45)}
+    .link-card{display:flex;align-items:center;justify-content:space-between;
+      padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow:0 6px 22px rgba(0,0,0,0.45)}
     .link-left{display:flex;gap:12px;align-items:center}
-    .favicon{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:900;color:#021328}
+    .favicon{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+      display:grid;place-items:center;font-weight:900;color:#021328}
     .link-title{font-weight:700}
     .cta{color:var(--accent);text-decoration:none;font-weight:700}
 
     footer{padding:28px;text-align:center;color:#9fbfce}
 
-    @media (max-width:1024px){header.hero{grid-template-columns:1fr 320px}.orbital{width:320px;height:320px}}
-    @media (max-width:780px){header.hero{grid-template-columns:1fr;padding:36px 5vw;gap:24px}.grid{grid-template-columns:1fr;gap:20px}.orbital{width:260px;height:260px}.resume-strip{flex-direction:column;align-items:flex-start}}
+    .badge-section{text-align:center;margin-top:40px;}
+    .badge-section img{
+      width:180px;border-radius:12px;margin-top:12px;
+      box-shadow:0 0 20px rgba(0,229,255,0.2);
+      transition:transform .3s;
+    }
+    .badge-section img:hover{transform:scale(1.05);}
 
+    .verify-links{margin-top:20px;display:flex;flex-direction:column;gap:10px;text-align:left;}
+    .verify-links a{color:var(--accent);text-decoration:none;font-weight:600;}
+    .verify-links a:hover{text-decoration:underline;color:var(--accent2);}
+
+    @media (max-width:1024px){header.hero{grid-template-columns:1fr 320px}.orbital{width:320px;height:320px}}
+    @media (max-width:780px){
+      header.hero{grid-template-columns:1fr;padding:36px 5vw;gap:24px}
+      .grid{grid-template-columns:1fr;gap:20px}
+      .orbital{width:260px;height:260px}
+      .resume-strip{flex-direction:column;align-items:flex-start}
+    }
   </style>
 </head>
+
 <body>
   <header class="hero">
     <div class="intro">
       <h1>Anup Chapain</h1>
       <div class="tagline">
+        <div class="pill">Oracle Certified Professional</div>
         <div class="pill">Service Desk Specialist</div>
         <div class="pill">Master in Software Engineering</div>
         <div class="pill">Auckland • Open Work Visa</div>
       </div>
 
-      <p class="lead">High-performing, coachable Service Desk professional with a technical foundation in Linux, networking, scripting and ITIL-aligned incident management. Rapid at learning, calm under pressure, and building strong user rapport — aiming to translate frontline support experience into a long-term career in DevOps & Cloud Operations.</p>
-      <p><strong><strong>Languages:</strong> English (PTE 90/90 - May 2023) • Nepali (native) • Hindi (conversational)</p>
+      <p class="lead">
+        High-performing, coachable Service Desk professional with a strong foundation in Linux, networking, scripting and ITIL-aligned incident management. Rapid learner, calm under pressure, and excellent communicator — progressing towards DevOps & Cloud Operations.
+      </p>
+
+      <p><strong>Languages:</strong> English (PTE 90/90, May 2023) • Nepali (native) • Hindi (conversational)</p>
+
       <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
         <a class="pill" href="mailto:emailofanup@gmail.com">Contact</a>
         <a class="pill" href="https://github.com/fitandfine" target="_blank">GitHub</a>
+      </div>
+
+      <!-- Oracle Badge Section -->
+      <div class="badge-section">
+        <h3 style="color:var(--accent2);margin-top:24px;">🏅 Oracle Cloud Infrastructure 2025 Foundations Associate</h3>
+        <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=D02302CA3C05D0894E965B9A9BBFBAAEEF909B4FA45CA9CA854522C42C03BD55" target="_blank">
+          <img src="oracle_badge.jpeg" alt="Oracle Certified Badge">
+        </a>
         
       </div>
     </div>
 
-    <div class="orbital" aria-hidden>
+    <div class="orbital">
       <div class="satellite s1">Linux</div>
       <div class="satellite s2">Python</div>
-      <div class="satellite s3">ITIL</div>
+      <div class="satellite s3">Oracle</div>
       <div class="satellite s4">AWS</div>
-      
-
       <div class="portrait"><img src="photo.jpg" alt="Anup Chapain"></div>
     </div>
   </header>
- <main class="grid">
+
+  <main class="grid">
     <section class="left-col">
       <div class="card">
         <h4>Professional Summary</h4>
-        <p>Highly efficient Service Desk professional skilled at managing high-volume requests and providing rapid issue resolution with a focus on outstanding customer experience. Enthusiastic about learning automation and cloud technologies to move towards DevOps.</p>
+        <p>Efficient Service Desk professional adept at managing incidents, providing rapid technical resolutions and maintaining excellent customer satisfaction. Passionate about automation, security, and cloud operations to evolve into a DevOps engineer.</p>
       </div>
-  <div class="resume-strip">
-    <div class="summary">
-      <h3>Quick Snapshot</h3>
-      
-      <p style="margin-top:8px">Completed Datacom Service Desk simulation (Forage, Sep 2025) — practised incident prioritisation, ITIL logging and escalations. Currently preparing for AWS certification (planned 20 Oct 2025). </p>
-    </div>
-    <div class="meta">
-      <a class="btn" href="https://github.com/fitandfine" target="_blank">View GitHub</a>
-    </div>
-  </div>
 
- 
+      <div class="resume-strip">
+        <div class="summary">
+          <h3>Quick Snapshot</h3>
+          <p style="margin-top:8px">
+            ✅ Completed <strong>Oracle Cloud Infrastructure Foundations 2025</strong><br>
+            ✅ Completed <strong>Service Desk Simulation (Datacom)</strong><br>
+            ✅ Completed <strong>Cybersecurity Simulation (Deloitte)</strong><br>
+            ✅ Completed <strong>Customer Service Simulation (Forage Academy)</strong><br>
+            🎯 Preparing for AWS Certification — planned Oct 2025.
+          </p>
+        </div>
+        <div class="meta">
+          <a class="btn" href="https://github.com/fitandfine" target="_blank">View GitHub</a>
+        </div>
+      </div>
 
       <div class="card">
         <h4>Core Skills</h4>
-        <div class="skill-list" style="margin-top:8px">
-         
-          <div class="skill">Windows & Linux</div>
-          <div class="skill">Bash & Python Scripting</div>
-          <div class="skill">Django / Flask</div>
-          <div class="skill">Networking (DNS, TCP/IP, VPN)</div>
-          <div class="skill">C</div>
-          <div class="skill">C++</div>
-          <div class="skill">sql</div>
-          <div class="skill">php</div>
-          <div class="skill">HTML</div>
-          <div class="skill">CSS</div>
-           <div class="skill">Incident Management (ITIL)</div>
+        <div class="skill-list">
+          <div class="skill">Cloud Computing</div>
+          <div class="skill">Windows & Linux</div><div class="skill">Bash & Python</div>
+          <div class="skill">Django / Flask</div><div class="skill">Networking (DNS, VPN, TCP/IP)</div>
+          <div class="skill">C / C++ / SQL / PHP</div>
+          <div class="skill">HTML / CSS</div><div class="skill">Incident Management (ITIL)</div>
           <div class="skill">Hardware & Software Troubleshooting</div>
-          <div class="skill">POS & Retail Systems</div>
-          <div class="skill">End-user Training & Documentation</div>
-          <div class="skill">Customer Experience & Communication</div>
+          <div class="skill">POS & Retail Systems</div><div class="skill">Customer Experience</div>
         </div>
       </div>
 
       <div class="card">
         <h4>Experience & Highlights</h4>
         <div class="timeline">
-          <div class="titem"><strong>Customer Service Representative — BP2Go, Eltham (Apr 2025 - Jul 2025)</strong><span style="display:block;color:#bfefff">Frontline support, POS operations, team training and operational reliability during peak times.</span></div>
-          <div class="titem"><strong>IT Support Technician / Manager — Nepal (2011 - 2023)</strong><span style="display:block;color:#bfefff">Desktop & network support, documentation, staff training and system maintenance.</span></div>
-          <div class="titem"><strong>IELTS/PTE Instructor — Various (2016 - 2023)</strong><span style="display:block;color:#bfefff">Communication coaching and public speaking — enhanced stakeholder communication skills.</span></div>
+          <div class="titem"><strong>Customer Service Representative — BP2Go, Eltham (Apr–Jul 2025)</strong><span style="color:#bfefff">Frontline operations, POS support, customer service, and training.</span></div>
+          <div class="titem"><strong>IT Support Technician / Manager — Nepal (2011–2023)</strong><span style="color:#bfefff">Desktop/network maintenance, software deployment, staff support, and documentation.</span></div>
+          <div class="titem"><strong>IELTS/PTE Instructor — Various (2016–2023)</strong><span style="color:#bfefff">Enhanced communication and presentation skills through teaching and coaching.</span></div>
         </div>
       </div>
 
@@ -239,71 +229,46 @@
         <h4>Education & Certifications</h4>
         <p><strong>Master in Software Engineering</strong> — Yoobee College of Creative Innovation, Auckland (2024)</p>
         <p style="margin-top:6px"><strong>Diploma in Computer Engineering</strong> — Thapathali Campus, Tribhuvan University, Nepal (2010)</p>
-        <p style="margin-top:10px"><strong>Extra Curricular:</strong> Datacom Service Desk (Forage, Sep 2025); Fundamentals of Digital Marketing (Google); Inbound Marketing (HubSpot); Teaching Excellence (British Council); PTE Academic 90/90 (May 2023); AWS Exam (planned 20 Oct 2025).</p>
-      </div>
 
+        <div class="verify-links">
+          <h4 style="margin-top:14px;">Verified Certifications</h4>
+          <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=D02302CA3C05D0894E965B9A9BBFBAAEEF909B4FA45CA9CA854522C42C03BD55" target="_blank">🏅 Oracle Cloud Infrastructure 2025 Foundations Associate</a>
+          <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_R5ssT3Qj25q8gTsBg_1759309110371_completion_certificate.pdf" target="_blank">🛡 Cybersecurity Job Simulation — Deloitte</a>
+          <a href="https://www.theforage.com/completion-certificates/gCW7Xki5Y3vNpBmnn/5qbJ4a5aDAPqM6tHD_gCW7Xki5Y3vNpBmnn_R5ssT3Qj25q8gTsBg_1759066726355_completion_certificate.pdf" target="_blank">💻 Service Desk Job Simulation — Datacom</a>
+          <a href="https://www.theforage.com/completion-certificates/HgpPSsyQpzob6HEh9/9EJDhMb6oS8GQAGYT_HgpPSsyQpzob6HEh9_R5ssT3Qj25q8gTsBg_1759301139320_completion_certificate.pdf" target="_blank">🎧 Customer Service Job Simulation — Forage Academy</a>
+        </div>
+      </div>
     </section>
 
     <aside class="card" style="height:fit-content">
-      <h4>You might want to click</h4>
+      <h4>You might want to click:</h4>
       <div class="links" style="margin-top:12px">
-       <div class="link-card">
-          <a class="cta" href="https://fitandfine.github.io/qr/" target="_blank">
-          <div class="link-left"><div class="favicon">Quick</div><div>
-            <div class="link-title">Qr code generator</div>
-            <div style="font-size:0.9rem;color:#bfefff"> For links, whatsapp, call, SMS etc.</div>
-          </div></div></a>
-          
-        </div>
-        <div class="link-card">
-          <a class="cta" href="https://fitandfine.github.io/dictionary/" target="_blank">
-          <div class="link-left"><div class="favicon">D</div><div>
-            <div class="link-title">Dictionary App</div>
-            <div style="font-size:0.9rem;color:#bfefff">Interactive dictionary UI & API integration</div>
-          </div></div></a>
-          
-        </div>
+        <div class="link-card"><a class="cta" href="https://fitandfine.github.io/qr/" target="_blank">
+          <div class="link-left"><div class="favicon">Q</div><div><div class="link-title">QR Code Generator</div><div style="font-size:0.9rem;color:#bfefff">Create codes for links, calls, SMS, etc.</div></div></div></a></div>
 
-        <div class="link-card">
-          <a class="cta" href="https://fitandfine.github.io/Earthquake-Visualizer/" target="_blank">
-          <div class="link-left"><div class="favicon">E</div><div>
-            <div class="link-title">Earthquake Visualizer</div>
-            <div style="font-size:0.9rem;color:#bfefff">Real-time data visualisation of seismic activity</div>
-          </div></div></a>
-          
-        </div>
+        <div class="link-card"><a class="cta" href="https://fitandfine.github.io/dictionary/" target="_blank">
+          <div class="link-left"><div class="favicon">D</div><div><div class="link-title">Dictionary App</div><div style="font-size:0.9rem;color:#bfefff">Interactive dictionary using API</div></div></div></a></div>
 
-        <div class="link-card">
-          <a class="cta" href="https://fitandfine.github.io/mybook/" target="_blank">
-          <div class="link-left"><div class="favicon">M</div><div>
-            <div class="link-title">MyBook</div>
-            <div style="font-size:0.9rem;color:#bfefff">Book project for kids </div>
-          </div></div></a>
-          
-        </div>
-        
-        <div class="link-card">
-          <a class="cta" href="https://github.com/fitandfine/linux-scripting-repo" target="_blank">
-          <div class="link-left"><div class="favicon">O</div><div>
-            <div class="link-title">Open Source</div>
-            <div style="font-size:0.9rem;color:#bfefff">Explore Shell scripts and notes</div>
-          </div></div></a>
-        
-        </div>
+        <div class="link-card"><a class="cta" href="https://fitandfine.github.io/Earthquake-Visualizer/" target="_blank">
+          <div class="link-left"><div class="favicon">E</div><div><div class="link-title">Earthquake Visualizer</div><div style="font-size:0.9rem;color:#bfefff">Real-time seismic visualization</div></div></div></a></div>
 
+        <div class="link-card"><a class="cta" href="https://fitandfine.github.io/mybook/" target="_blank">
+          <div class="link-left"><div class="favicon">M</div><div><div class="link-title">MyBook</div><div style="font-size:0.9rem;color:#bfefff">Interactive book for kids</div></div></div></a></div>
+
+        <div class="link-card"><a class="cta" href="https://github.com/fitandfine/linux-scripting-repo" target="_blank">
+          <div class="link-left"><div class="favicon">S</div><div><div class="link-title">Shell Scripting Repo</div><div style="font-size:0.9rem;color:#bfefff">Explore automation scripts & notes</div></div></div></a></div>
       </div>
 
       <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
         <a class="cta" href="mailto:emailofanup@gmail.com">Email</a>
       </div>
-
     </aside>
   </main>
 
   <footer>
-    <div style="max-width:980px;margin:0 auto;padding:8px 18px;color:#9fbfce;">© 2025 Anup Chapain — Service Desk • DevOps aspirant • Master in Software Engineering</div>
+    <div style="max-width:980px;margin:0 auto;padding:8px 18px;color:#9fbfce;">
+      © 2025 Anup Chapain — Service Desk • Cloud & DevOps Enthusiast
+    </div>
   </footer>
-
- 
 </body>
 </html>
