@@ -40,8 +40,8 @@ The portfolio page links to several projects demonstrating skills in full-stack 
 | Category | Detail |
 | :--- | :--- |
 | **Education** | Master in Software Engineering (Yoobee College, Auckland) |
-| **Current Cert Prep** | AWS Certification (Planned 20 Oct 2025) |
-| **Key Certifications** | PTE Academic 90/90 (English Language) |
+| **Current Cert Prep** | AWS Certification (Planned Oct 2025) |
+| **Key Certifications** | Oracle CLoud Infrastructure 2025 Foundations Associate |
 | **Experience** | 10+ years in IT Support and Service Desk roles (Nepal & New Zealand) |
 
 ---
