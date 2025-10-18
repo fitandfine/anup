@@ -1,5 +1,5 @@
 # 👨‍💻 Anup Chapain — Software Engineer Portfolio
-
+## [live page](https://fitandfine.github.io/anup/)
 This repository hosts the source code for my personal portfolio website, providing a comprehensive overview of my professional experience, core technical skills, and software development projects.
 
 
