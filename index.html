@@ -400,7 +400,159 @@
       </div>
     </section>
   </main>
+<style>
+  /* Container Banner with Gradient Background */
+  .private-contact-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
+    padding: 2.5rem 1.5rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3);
+    color: #f8fafc;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 
+  /* Inner Card for Contrast */
+  .private-card {
+    max-width: 480px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .private-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.35rem;
+    color: #ffffff;
+  }
+
+  .private-subtitle {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin: 0 0 1.5rem 0;
+  }
+
+  /* Buttons */
+  .reveal-btn, 
+  .password-row button {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  }
+
+  .reveal-btn:hover, 
+  .password-row button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+  }
+
+  /* Password Form Input Styling */
+  .password-box {
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+  .password-box label {
+    display: block;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-bottom: 0.5rem;
+  }
+
+  .password-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .password-row input {
+    flex: 1;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .password-row input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.25);
+  }
+
+  .password-message {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #f87171;
+  }
+
+  /* Revealed Phone State */
+  .phone-revealed {
+    margin-top: 1rem;
+  }
+
+  .phone-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #38bdf8;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .contact-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .contact-actions a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .phone-revealed small {
+    display: block;
+    color: #64748b;
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+  }
+</style>
+
+<!-- Social Links Section -->
 <section class="social-strip">
   <a href="https://www.instagram.com/nupnoops" target="_blank" rel="noopener">📸 Instagram</a>
   <a href="https://www.tiktok.com/@nupnoops" target="_blank" rel="noopener">🎵 TikTok</a>
@@ -408,37 +560,41 @@
 </section>
 
 <!-- Private contact reveal -->
-<section class="private-contact" id="private-contact">
-  <div class="private-card">
-    <div class="private-title">📞 Want the secret handshake?</div>
-    <p class="private-subtitle">Reveal my number</p>
+<div class="private-contact-banner">
+  <section class="private-contact" id="private-contact">
+    <div class="private-card">
+      <div class="private-title">📞 Want the secret handshake?</div>
+      <p class="private-subtitle">Reveal my number</p>
 
-    <button class="reveal-btn" id="revealBtn" type="button">🔐 Reveal phone number</button>
+      <button class="reveal-btn" id="revealBtn" type="button">🔐 Reveal phone number</button>
 
-    <div class="password-box" id="passwordBox" hidden>
-      <label for="phonePassword">Enter the password</label>
-      <div class="password-row">
-        <input id="phonePassword" type="password" autocomplete="off" placeholder="Password">
-        <button id="unlockBtn" type="button">Unlock</button>
+      <div class="password-box" id="passwordBox" hidden>
+        <label for="phonePassword">Enter the password</label>
+        <div class="password-row">
+          <input id="phonePassword" type="password" autocomplete="off" placeholder="Password">
+          <button id="unlockBtn" type="button">Unlock</button>
+        </div>
+        <div class="password-message" id="passwordMessage" aria-live="polite"></div>
       </div>
-      <div class="password-message" id="passwordMessage" aria-live="polite"></div>
-    </div>
 
-    <div class="phone-revealed" id="phoneRevealed" hidden>
-      <div class="phone-number">+64273276110</div>
-      <div class="contact-actions">
-        <a href="tel:+64273276110">📞 Call</a>
-        <a href="sms:+64273276110">💬 Text</a>
-        <a id="vcardDownload" href="#" download="Anup-Chapain.vcf">💾 Save contact</a>
+      <div class="phone-revealed" id="phoneRevealed" hidden>
+        <div class="phone-number">+64273276110</div>
+        <div class="contact-actions">
+          <a href="tel:+64273276110">📞 Call</a>
+          <a href="sms:+64273276110">💬 Text</a>
+          <a id="vcardDownload" href="#" download="Anup-Chapain.vcf">💾 Save contact</a>
+        </div>
+     
       </div>
-      <small>Replace the placeholder number in this page with your real NZ mobile number before publishing.</small>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
 
 
   <footer>
-    © 2026 Anup Chapain • Music, mischief & mildly ambitious adventures.
+    © 2026 Anup Chapain • Music, mischief & mildly ambitious adventures.<br>
+       <a href="https://github.com/fitandfine">...  ⚒️⚙️Er.Anup </a>
   </footer>
 
 <script>
